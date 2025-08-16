@@ -55,7 +55,7 @@ form {
   gap: 10px;
   margin-bottom: 20px;
 }
-.todoContainer button {
+.TaskBtn {
   padding: 8px 12px;
   font-size: 16px;
   border: none;
@@ -108,6 +108,18 @@ form {
 .checkbtn:hover {
   color: green;
 }
-
+.clearBtn{
+  
+ display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 16px;
+  background-color: brown;
+  padding: 8px 12px;
+   margin: 20px auto;
+   color: aliceblue;
+  border: none;
+  border-radius: 5px;
+}
 
 

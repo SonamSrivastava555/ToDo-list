@@ -3,15 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './ToDo.css'
 import { MdCheck,MdDeleteForever} from "react-icons/md";
+import ToDoForm from './ToDoForm';
 
 function App() {
-  const[inputValue,setInputValue]=useState("")
+  
   const[task,setTask]=useState([])
   const[time,setTime]=useState("");
-function handleInputChange(value){
-  setInputValue(value)
- 
-}
+
 const handleSubmitForm=(event)=>{
   event.preventDefault()
 
@@ -44,7 +42,11 @@ return ()=> clearInterval(interval)
 
 
 const handleDelete=(value)=>{
+  console.log(task)
  console.log(value)
+ const updateTask=task.filter((curTask)=> curTask!==value
+ )
+ setTask(updateTask)
 }
   return (
     <>
@@ -53,12 +55,7 @@ const handleDelete=(value)=>{
     <header>TODO List</header>
     <h3>{time}</h3>
      </section>
-     <section className='InputtodoContainer'>
-      <form onSubmit={handleSubmitForm}>
-      <input onChange={(e)=>handleInputChange(e.target.value)} value={inputValue} type="text" autoComplete='off' />
-      <button type='submit'>Save</button>
-    </form>
-     </section>
+     <ToDoForm/>
      <section className='inputMap'>
      <section >
        <ul>
@@ -72,6 +69,9 @@ const handleDelete=(value)=>{
           })
         }
       </ul>
+     </section>
+     <section>
+      <button className='clearBtn' onClick={()=>setTask([])}>Clear All</button>
      </section>
      </section>
 </div>
